@@ -5,15 +5,12 @@ public class Logger {
 	private String subsystem;
 	private String metodo;
 
-	public Logger(String system, String subsystem, String metodo) {
+	
+	public boolean setLogger(String system, String subsystem, String metodo) {
 		this.subsystem = subsystem;
 		this.system = system;
 		this.metodo = metodo;
-	};
-
-	public Logger(String system, String subsystem) {
-		this.subsystem = subsystem;
-		this.system = system;
+		return true;
 	};
 
 	public String getSystem() {
@@ -36,9 +33,6 @@ public class Logger {
 		return metodo;
 	}
 
-	public void setMetodo(String metodo) {
-		this.metodo = metodo;
-	}
 
 	public void info(String texto) {
 		this.saidaFormatada(texto, "Info");
@@ -70,7 +64,10 @@ public class Logger {
 
 	private void saidaFormatada(String texto, String level, Exception e) {
 		saidaFormatada(texto, level);
-		this.saida(e.getMessage() + " " + e.getStackTrace());
+		this.saida("<<<--------------------------------->>>");
+		this.saida(e.getMessage() + " " + e.fillInStackTrace());
+		e.printStackTrace();
+		this.saida("<<<--------------------------------->>>");
 	}
 
 	private void saidaFormatada(String texto, String level) {
