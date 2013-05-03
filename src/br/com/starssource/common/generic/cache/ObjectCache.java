@@ -14,7 +14,7 @@ public class ObjectCache implements Serializable {
 	// CacheClient = Itens do Cliente
 	private String system = "GenericUtilCommons";
 	private String subsystem = "ObjectCache";
-	private static LinkedHashMap<String, CacheClient> globalCache;
+	private LinkedHashMap<String, CacheClient> globalCache;
 	private Logger log = new Logger();
 	private Boolean debugFlag = true;
 
